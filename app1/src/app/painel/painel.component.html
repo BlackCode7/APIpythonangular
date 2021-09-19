@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-6">
+                <!--Controle da variavel progresso e a barra de progresso-->
+                <app-progresso [progresso]="progresso"></app-progresso>
+            </div>
+            <div class="col-sm-6">
+                <app-tentativas [tentativas]="tentativas"></app-tentativas>
+            </div>
+        </div>   
+        <div class="row">
+            <div class="col">
+                <h6>{{instrucao}} </h6>
+                <p>{{rodadaFrase.fraseEng}}</p>
+                <div class="form-group">
+                    <!--
+                        
+                        estamos usando o event binding e property binding
+                        (input)="atualizaResposta($event)"
+                        [value]="resposta"
+                    -->
+                     <textarea 
+                     class="form-control" 
+                     rows="3"
+                     (input)="atualizaResposta($event)"
+                     [value]="resposta"
+                     ></textarea>
+                </div>
+            </div>
+        </div> 
+        <div class="row">
+            <div class="col">
+                <div class="d-flex justify-content-end">
+                    <!--Chamando o metodo recuperaValorDigitado()-->
+                    <button 
+                    type="button" 
+                    class="btn btn-primary"
+                    (click)="recuperaValorDigitado()"
+                    >Verificar</button>
+                </div>                
+            </div>
+        </div> 
+        <!--<p>{{resposta}}</p>-->   
+    </div>
+</div>
